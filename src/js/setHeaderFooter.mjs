@@ -8,7 +8,7 @@ function setHeaderInfo(data) {
   disclaimer.href = data.url;
   disclaimer.innerHTML = data.fullName;
 
-  // Update <title>
+  // Updated <title>
   document.querySelector("head > title").textContent = data.fullName;
 
   // Banner image
