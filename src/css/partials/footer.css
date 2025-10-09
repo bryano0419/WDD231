@@ -1,0 +1,50 @@
+/* css/partials/footer.css */
+#park-footer {
+  background-image: url('image_3345e3.jpg'); 
+  background-color: #fff; 
+  background-repeat: repeat;
+  border-top: 1px solid var(--bs-grey-5); 
+  padding: 2.5em 1em; 
+  margin-top: 3em; 
+}
+
+.contact {
+  color: var(--bs-grey-1);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.contact h3 {
+  text-transform: uppercase;
+  font-size: 0.85rem; 
+  font-weight: bold;
+  margin-bottom: 1em; 
+}
+
+.contact h4 {
+  font-size: 0.9rem; 
+  font-weight: bold;
+  margin-top: 1em; 
+  margin-bottom: 0.2em;
+}
+
+.contact p {
+  margin: 0;
+  color: var(--bs-grey-1); 
+}
+
+.contact p a {
+  color: var(--bs-grey-1);
+}
+
+/* MOBILE SPECIFIC FOOTER STYLES */
+@media (max-width: 767px) {
+  #park-footer {
+    padding: 2em 0.5em; 
+    margin-top: 2em; 
+  }
+  
+  .contact {
+    padding: 0 0.5em;
+  }
+}

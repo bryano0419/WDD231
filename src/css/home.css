@@ -1,0 +1,70 @@
+/* home.css */
+/* --- MAIN CONTENT (Desktop Styles - Default) --- */
+
+.intro,
+.info,
+.contact {
+  max-width: 1200px; /* Increased max-width for better full-screen use */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+.intro {
+  padding-top: 1.5em;
+  padding-bottom: 0.5em;
+}
+
+.intro h1 {
+  font-family: 'National Park', sans-serif; 
+  font-size: 2.5rem;
+  margin-top: 0; 
+  margin-bottom: 0.8em; 
+  color: var(--bs-black); 
+}
+
+.intro p {
+  font-size: 1rem; 
+  line-height: 1.6;
+  margin-bottom: 2em; 
+  color: var(--bs-grey-1); 
+}
+
+.info {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 1.5em;
+  padding: 0 1em; 
+  margin-top: 0;
+  margin-bottom: 3em;
+}
+
+/* --- Extra-Large Screen Adjustment --- */
+@media (min-width: 1400px) {
+  .intro,
+  .info,
+  .contact {
+    max-width: 1400px; 
+  }
+}
+
+/* --- MOBILE SPECIFIC STYLES (Max-width 767px) --- */
+@media (max-width: 767px) {
+  .intro,
+  .info,
+  .contact {
+    max-width: 100%; 
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .info {
+    grid-template-columns: 1fr; 
+    gap: 2em; 
+    margin-top: 1em;
+    margin-bottom: 2em;
+    padding-left: 0; 
+    padding-right: 0;
+  }
+}

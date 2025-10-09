@@ -1,0 +1,9 @@
+/* css/partials/variables.css */
+:root {
+  --bs-black: #000;
+  --bs-grey-1: #333;
+  --bs-grey-2: #555;
+  --bs-grey-5: #ccc;
+  /* NOTE: A placeholder for a primary color that was used but not defined: */
+  --bs-primary: #007bff; /* Assuming a common blue for primary color */
+}

@@ -1,27 +1,38 @@
-import { getParkData, parkInfoLinks } from "./parkService.mjs"; // ADDED parkInfoLinks
-import setHeaderFooter from "./setHeaderFooter.mjs"; // NEW Import for default export
-import { mediaCardTemplate } from "./templates.mjs"; // NEW Import for template
-
-const parkData = getParkData();
+// Change import: parkInfoLinks -> getInfoLinks
+import { getParkData, getInfoLinks } from "./parkService.mjs"; 
+import setHeaderFooter from "./setHeaderFooter.mjs";
+import { mediaCardTemplate } from "./templates.mjs";
 
 // setParkIntro remains in main.js
 function setParkIntro(data) {
   const introEl = document.querySelector(".intro");
-  introEl.innerHTML = `<h1>${parkData.fullName}</h1>
-  <p>${parkData.description}</p>`;
+  // Ensure we use the parameter 'data'
+  introEl.innerHTML = `<h1>${data.fullName}</h1>
+  <p>${data.description}</p>`;
 }
 
-// setParkInfoLinks remains in main.js, but uses the imported template and the better method
+// setParkInfoLinks remains in main.js
 function setParkInfoLinks(data) {
   const infoEl = document.querySelector(".info");
-  // we have multiple links to build...so we map to transform the array of objects into an array of HTML strings.
   const html = data.map(mediaCardTemplate);
-  // join the array of strings into one string and insert it into the section
-  infoEl.insertAdjacentHTML("afterbegin", html.join("")); // Refactored to use insertAdjacentHTML
+  infoEl.insertAdjacentHTML("afterbegin", html.join(""));
 }
 
-// ---------- RUN FUNCTIONS ----------
+// ---------- RUN FUNCTIONS (Updated) ----------
 
-setHeaderFooter(parkData); // Uses the new default exported function
-setParkIntro(parkData);
-setParkInfoLinks(parkInfoLinks); // Uses the new imported data
+async function init() {
+  // 1. Fetch the park data (change 'yell' to 'glac' if you updated getParkData)
+  const parkData = await getParkData('glac'); 
+
+  // 2. Generate the dynamic links by passing the API's image array
+  const links = getInfoLinks(parkData.images); 
+
+  // 3. Use the fetched data
+  setHeaderFooter(parkData);
+  setParkIntro(parkData);
+  
+  // 4. Use the dynamically updated links
+  setParkInfoLinks(links); 
+}
+
+init();
